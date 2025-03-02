@@ -1,0 +1,160 @@
+/* Box Model Hack */
+ * {
+     box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+body{
+    
+}
+
+header {
+     display: flex;
+     flex-flow: row;
+     align-items: center;
+     justify-content: flex-end;
+     gap: 5em;
+     flex: 1;
+     height: 100px;
+     border: 2px solid black;
+     padding-right: 2em;
+     background-color:aliceblue
+}
+
+nav{
+     display:flex;
+     gap: 5em;
+}
+
+section{
+     height: 70em;
+     border: 2px solid black;
+     padding: 1em;
+}
+
+footer{
+     height: 200px;
+     border: 2px solid black;
+     clear: both;
+     color: aliceblue;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+#tomGriffin{
+     height:50em;
+     background-color:blanchedalmond
+     
+}
+#welcome{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-evenly;
+     align-items: center;
+     gap: 5em;
+}
+
+img{
+     max-width: 30%;
+     max-height: 30%;
+}
+
+#welcomeWords{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+  
+}
+
+#nav{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: flex-end;
+     height: 13em;
+     gap: 10em;
+
+}
+
+.asides{
+     display: flex;
+     flex-direction: column;
+     align-content: flex-start;
+}
+
+#asideHeader{
+     display: flex;
+     flex-flow: column wrap;
+     justify-content: center;
+     align-items: center;
+}
+
+.columns{
+     display: flex;
+     flex-direction: row-reverse;
+     justify-content: center;
+     align-items: center;
+     gap: 5em;
+}
+
+#webDevelopment{
+   background-color: whitesmoke;
+}
+
+#cyberSecurity{
+   background-color: blanchedalmond;  
+}
+
+#portfolioProjectLinks{
+   width: 250%;
+   align-items: flex-start;
+   height: 24em;
+}
+
+#portfolioProjectLinks2{
+     width: 250%;
+     align-items: flex-start;
+     height: 24em;
+}
+
+.thicc{
+     height: 400px;
+     width: 100%;
+     border: 2px solid black;
+     float: left;
+}
+
+@media screen and (min-width:1000px){
+          .thicc{
+               background-color: rgb(100, 128, 0);
+          }
+     }     
+
+@media screen and (max-width: 600px){
+          section{
+          background-color: blue;
+     }
+     
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
