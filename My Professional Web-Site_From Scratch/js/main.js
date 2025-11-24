@@ -1,5 +1,5 @@
-// Enhanced JavaScript Scroll Animations - Bug Fixes and Improvements
-// Add this to your main.js file
+// Enhanced JavaScript Scroll Animations - Updated for Index Page
+// Skill cards remain visible, only section-level animations
 
 document.addEventListener('DOMContentLoaded', function() {
     // Reduced initial blank screen to 0.5 seconds
@@ -38,34 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(animate);
     }
     
-    function expandFromCenter(element, duration = 1000) {
-        element.style.opacity = '0';
-        element.style.transform = 'scaleX(0) scaleY(0.1)';
-        element.style.transformOrigin = 'center center';
-        
-        let start = performance.now();
-        
-        function animate(currentTime) {
-            let elapsed = currentTime - start;
-            let progress = Math.min(elapsed / duration, 1);
-            
-            // Smooth ease-out with slight bounce
-            let easeOut = 1 - Math.pow(1 - progress, 4);
-            let bounce = progress < 0.8 ? 0 : Math.sin((progress - 0.8) * 25) * 0.05;
-            
-            element.style.opacity = progress * 1.2; // Fade in slightly faster
-            element.style.transform = `scaleX(${easeOut + bounce}) scaleY(${0.1 + (0.9 * easeOut)})`;
-            
-            if (progress < 1) {
-                requestAnimationFrame(animate);
-            } else {
-                element.style.transform = 'scaleX(1) scaleY(1)';
-            }
-        }
-        
-        requestAnimationFrame(animate);
-    }
-    
     function slideAndScale(element, fromDirection = 'left', duration = 1100) {
         const distance = fromDirection === 'left' ? -80 : 80;
         element.style.opacity = '0';
@@ -94,36 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(animate);
     }
     
-    function cascadeFromCenter(element, duration = 800, delay = 0) {
-        setTimeout(() => {
-            element.style.opacity = '0';
-            element.style.transform = 'scale(0.4) rotateY(45deg)';
-            element.style.transformOrigin = 'center center';
-            element.style.transformStyle = 'preserve-3d';
-            
-            let start = performance.now();
-            
-            function animate(currentTime) {
-                let elapsed = currentTime - start;
-                let progress = Math.min(elapsed / duration, 1);
-                
-                // Smooth cubic ease-out
-                let easeOut = 1 - Math.pow(1 - progress, 3);
-                
-                element.style.opacity = easeOut;
-                element.style.transform = `scale(${0.4 + (0.6 * easeOut)}) rotateY(${45 - (45 * easeOut)}deg)`;
-                
-                if (progress < 1) {
-                    requestAnimationFrame(animate);
-                } else {
-                    element.style.transform = 'scale(1) rotateY(0deg)';
-                }
-            }
-            
-            requestAnimationFrame(animate);
-        }, delay);
-    }
-    
     // Exit animation functions - stylish fade-out effects
     function shrinkToCenter(element, duration = 600) {
         let start = performance.now();
@@ -139,27 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             element.style.opacity = initialOpacity * (1 - easeIn);
             element.style.transform = `scale(${initialScale * (1 - easeIn * 0.8)})`;
-            
-            if (progress < 1) {
-                requestAnimationFrame(animate);
-            }
-        }
-        
-        requestAnimationFrame(animate);
-    }
-    
-    function collapseToCenter(element, duration = 700) {
-        let start = performance.now();
-        const initialOpacity = parseFloat(getComputedStyle(element).opacity) || 1;
-        
-        function animate(currentTime) {
-            let elapsed = currentTime - start;
-            let progress = Math.min(elapsed / duration, 1);
-            
-            let easeIn = progress * progress;
-            
-            element.style.opacity = initialOpacity * (1 - easeIn);
-            element.style.transform = `scaleY(${1 - easeIn * 0.9}) scaleX(${1 - easeIn * 0.7})`;
             
             if (progress < 1) {
                 requestAnimationFrame(animate);
@@ -191,9 +112,9 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(animate);
     }
     
-    // Enhanced Intersection Observer - FIXED to allow re-animation
+    // Enhanced Intersection Observer - ONLY FOR MAIN SECTIONS (not individual cards)
     const observerOptions = {
-        threshold: 0.15, // More conservative threshold
+        threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
     };
     
@@ -209,11 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     slideAndScale(element, 'left', 1100);
                 } else if (element.id === 'cyberSecurity') {
                     slideAndScale(element, 'right', 1100);
-                } else if (element.classList.contains('listBox')) {
-                    const index = Array.from(document.querySelectorAll('.listBox')).indexOf(element);
-                    cascadeFromCenter(element, 900, index * 200);
-                } else {
-                    scaleFromCenter(element, 900);
                 }
             } else {
                 // Element is leaving viewport - apply exit animation
@@ -223,25 +139,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     slideAndShrink(element, 'left', 650);
                 } else if (element.id === 'cyberSecurity') {
                     slideAndShrink(element, 'right', 650);
-                } else if (element.classList.contains('listBox')) {
-                    const index = Array.from(document.querySelectorAll('.listBox')).indexOf(element);
-                    setTimeout(() => shrinkToCenter(element, 500), index * 100);
-                } else {
-                    shrinkToCenter(element, 600);
                 }
             }
         });
     }, observerOptions);
     
-    // Only animate sections that should come and go - NOT header/footer
+    // Only animate the MAIN SECTIONS - NOT the individual listBox cards
     const sectionsToAnimate = [
         document.querySelector('.tomGriffin'),
         document.querySelector('#webDevelopment'),
-        document.querySelector('#cyberSecurity'),
-        ...document.querySelectorAll('.listBox')
+        document.querySelector('#cyberSecurity')
     ].filter(el => el !== null);
     
-    // Set up observer for scrollable sections only
+    // Set up observer for main sections only
     sectionsToAnimate.forEach((element, index) => {
         element.style.opacity = '0';
         element.style.visibility = 'hidden';
@@ -249,7 +159,15 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             element.style.visibility = 'visible';
             observer.observe(element);
-        }, 700 + (index * 30)); // Reduced delay
+        }, 700 + (index * 30));
+    });
+    
+    // Make sure listBox cards are always visible (no animations)
+    const allListBoxes = document.querySelectorAll('.listBox');
+    allListBoxes.forEach(box => {
+        box.style.opacity = '1';
+        box.style.visibility = 'visible';
+        box.style.transform = 'none';
     });
     
     // Header and footer stay fixed - just fade in once
@@ -398,4 +316,71 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'auto';
         }
     });
+});
+// Modal functionality for "Hire Me" button
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Get modal elements
+    const modal = document.getElementById('contactModal');
+    const hireMeBtn = document.getElementById('hireMeBtn');
+    const closeModal = document.querySelector('.close-modal');
+    
+    // Open modal when "Hire Me" button is clicked
+    if (hireMeBtn) {
+        hireMeBtn.addEventListener('click', function() {
+            modal.style.display = 'block';
+        });
+    }
+    
+    // Close modal when X is clicked
+    if (closeModal) {
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+    }
+    
+    // Close modal when clicking outside of it
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+        }
+    });
+    
+    // Form submission handling (optional - for better UX)
+    const contactForm = document.querySelector('form[name="contact"]');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            // Netlify will handle the actual submission
+            // This is just for user feedback
+            console.log('Form submitted');
+        });
+    }
+    
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Don't smooth scroll if it's just "#"
+            if (href === '#') return;
+            
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
 });
