@@ -1025,9 +1025,10 @@ img{
 
 /* Hover visual feedback (pure style) */
 .hero-carousel-columns .carousel-track img:hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow-raised);
-    z-index: 2;
+    transform: scale(2.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+	transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* Heading white on blue */
@@ -1062,3 +1063,4 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
