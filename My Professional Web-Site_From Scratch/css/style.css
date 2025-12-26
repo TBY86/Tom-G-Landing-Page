@@ -179,18 +179,38 @@ footer{
 
 /* Update .tomGriffin to grow with content */
 .tomGriffin {
-    /* height: 50rem; */           /* Comment out or remove the fixed height */
-    min-height: 50rem;            /* Keeps it at least your original size, but allows growth */
-    height: auto;                 /* Lets it expand as needed */
-    display: flex;                /* New: Flex column for clean internal layout */
-    flex-direction: column;
-    justify-content: space-between; /* Pushes carousel to bottom with space */
+    /* Remove fixed height to allow natural growth */
+    /* height: 50rem; */ 
+    min-height: 50rem;     /* Keeps minimum size but allows expansion */
+    height: auto;
     background-color: var(--sky-blue);
     color: var(--text-light);
     margin: 1rem;
     padding: 1rem;
-    border-radius: 15px;          /* Ensures rounded corners stay */
-    overflow: hidden;             /* Clips any internal overflow cleanly */
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;         /* Keep flex for vertical stacking of top + carousel */
+    flex-direction: column;
+}
+
+/* Restores side-by-side layout for welcome row */
+.tomGriffin > .welcome {
+    display: flex;                 /* Your original flex row */
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5rem;                     /* Matches your original gap */
+    margin-bottom: 2rem;           /* Space before carousel heading */
+}
+
+/* Keeps photo sizing */
+.tomGriffin > .welcome > img {
+    max-width: 30%;
+    max-height: 30%;
+    width: auto;
+    height: auto;
+}
+
 }
 
 /* Tighten spacing for heading */
@@ -1050,5 +1070,6 @@ img{
     overflow: hidden;
     position: relative;
 }
+
 
 
