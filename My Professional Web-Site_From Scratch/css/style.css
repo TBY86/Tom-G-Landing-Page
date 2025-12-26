@@ -1018,3 +1018,15 @@ img{
     right: 0;
     background: linear-gradient(to left, var(--sky-blue), transparent);
 }
+
+.hero-carousel-wrapper {
+    padding-bottom: 3rem;      /* Space before bottom of hero – adjust 3rem up/down as needed */
+    margin-bottom: -1rem;      /* Optional: pulls it slightly up if too much gap */
+}
+
+.hero-carousel-columns {
+    padding: 1rem 2rem 0 2rem; /* Top + sides, zero bottom padding (wrapper handles it) */
+    overflow: hidden;
+    position: relative;
+}
+
