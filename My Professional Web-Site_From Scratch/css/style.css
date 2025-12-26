@@ -955,3 +955,57 @@ img{
 /* ADDITIONAL STYLES
 /*******************************************/
 
+/* Certifications auto-scrolling carousel – minimal addition */
+.carousel-track {
+    display: flex;
+    gap: 2rem;                    /* Space between certificates */
+    animation: scroll-left 40s linear infinite; /* Adjust 40s for speed */
+    padding: 1rem 0;
+}
+
+.carousel-track img {
+    height: 220px;                /* Consistent height – adjust as needed */
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 15px;          /* Matches your global style */
+    box-shadow: var(--shadow-raised-subtle);
+}
+
+@keyframes scroll-left {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Moves half the duplicated set */
+}
+
+/* Optional: Pause on hover */
+.tomGriffin:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+/* Optional fade edges for polish */
+.columns {
+    position: relative;
+    overflow: hidden;             /* Hides the edges during scroll */
+}
+
+.columns::before,
+.columns::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.columns::before {
+    left: 0;
+    background: linear-gradient(to right, var(--sky-blue), transparent);
+}
+
+.columns::after {
+    right: 0;
+    background: linear-gradient(to left, var(--sky-blue), transparent);
+}
+
