@@ -1037,18 +1037,6 @@ img{
     position: relative;
 }
 
-/* Allow enlarged certs to pop out below the hero bottom */
-.tomGriffin {
-    overflow: visible !important;   /* Key line: lets zoomed images escape bottom */
-    position: relative;             /* Ensures proper layering */
-}
-
-/* Optional: Strengthen z-index on hovered image to stay on top */
-.hero-carousel-columns .carousel-track img:hover {
-    z-index: 30;                    /* Higher than everything else */
-    position: relative;
-}
-
 /* Keep fade edges working but only on the sides (not clipping vertically) */
 .hero-carousel-columns::before,
 .hero-carousel-columns::after {
@@ -1106,5 +1094,4 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
-
 
