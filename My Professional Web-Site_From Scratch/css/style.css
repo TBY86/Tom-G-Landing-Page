@@ -994,7 +994,7 @@ img{
 }
 
 /******************************************
-/* ADDITIONAL STYLES - CAROUSEL (STYLING ONLY)
+/* ADDITIONAL STYLES - CAROUSEL
 /******************************************/
 /* Hero-only carousel container */
 .hero-carousel-columns {
@@ -1031,6 +1031,37 @@ img{
 	transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+/* Allow enlarged images to escape the carousel clipping */
+.hero-carousel-columns {
+    overflow: visible;  /* Changed from hidden — lets enlarged imgs pop out */
+    position: relative;
+}
+
+/* Keep fade edges working but only on the sides (not clipping vertically) */
+.hero-carousel-columns::before,
+.hero-carousel-columns::after {
+    top: 50%;                  /* Center vertically */
+    transform: translateY(-50%);
+    height: 80%;               /* Shorter height so they don't clip top/bottom */
+    width: 200px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Stronger pop-out effect on hover */
+.hero-carousel-columns .carousel-track img:hover {
+    transform: scale(2.4);                 /* Even bigger for full fine-print readability */
+    z-index: 20;                           /* High z-index to appear above everything */
+    position: relative;                    /* Helps with layering */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Optional: Dark backdrop behind enlarged cert for better focus */
+.hero-carousel-columns::after {  /* Re-use the right fade as optional backdrop, or add new */
+    /* Remove or comment out side fades if they interfere, or keep as-is */
+}
+
 /* Heading white on blue */
 .tomGriffin > .asideHeader h2 {
     color: var(--text-light);
@@ -1063,4 +1094,5 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
