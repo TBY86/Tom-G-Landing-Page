@@ -1037,17 +1037,6 @@ img{
     position: relative;
 }
 
-/* Keep fade edges working but only on the sides (not clipping vertically) */
-.hero-carousel-columns::before,
-.hero-carousel-columns::after {
-    top: 50%;                  /* Center vertically */
-    transform: translateY(-50%);
-    height: 80%;               /* Shorter height so they don't clip top/bottom */
-    width: 200px;
-    pointer-events: none;
-    z-index: 1;
-}
-
 /* Stronger pop-out effect on hover */
 .hero-carousel-columns .carousel-track img:hover {
     transform: scale(2.4);                 /* Even bigger for full fine-print readability */
@@ -1067,31 +1056,10 @@ img{
     color: var(--text-light);
 }
 
-/* Fade edges */
-.hero-carousel-columns::before,
-.hero-carousel-columns::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 200px;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.hero-carousel-columns::before {
-    left: 0;
-    background: linear-gradient(to right, var(--sky-blue), transparent);
-}
-
-.hero-carousel-columns::after {
-    right: 0;
-    background: linear-gradient(to left, var(--sky-blue), transparent);
-}
-
 /* Bottom spacing inside hero */
 .hero-carousel-wrapper {
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
