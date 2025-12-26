@@ -199,7 +199,7 @@ footer{
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-	padding-right: 4rem;
+	padding-right: 6rem;
     gap: 5rem;                     /* Matches your original gap */
     margin-bottom: 2rem;           /* Space before carousel heading */
 }
@@ -1071,6 +1071,7 @@ img{
     overflow: hidden;
     position: relative;
 }
+
 
 
 
