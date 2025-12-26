@@ -306,30 +306,36 @@ document.addEventListener('DOMContentLoaded', function() {
     const container = document.querySelector('.hero-carousel-columns');
 
     if (track && container) {
-        // Duplicate content for seamless infinite scroll
-        track.innerHTML += track.innerHTML;
+        // Duplicate content for seamless loop
+        const originalContent = track.innerHTML;
+        track.innerHTML += originalContent;
 
         let scrollAmount = 0;
-        const speed = 1; // Adjust: higher = faster (try 0.5 for slower, 1.5 for faster)
+        const speed = 1; // Adjust: higher = faster (e.g., 0.8 slow, 1.5 fast)
+        const singleSetWidth = track.scrollWidth / 2; // Width of one full set of images
         let isPaused = false;
-        const maxScroll = track.scrollWidth / 2;
 
         function scrollCarousel() {
             if (!isPaused) {
                 scrollAmount += speed;
-                if (scrollAmount >= maxScroll) {
-                    scrollAmount = 0;
+
+                // Seamless loop: when we've scrolled one full set, jump back instantly
+                if (scrollAmount >= singleSetWidth) {
+                    scrollAmount -= singleSetWidth; // Subtract instead of reset to 0
+                    // No visual jump because content is duplicated
                 }
+
                 track.style.transform = `translateX(-${scrollAmount}px)`;
             }
+
             requestAnimationFrame(scrollCarousel);
         }
 
-        // Pause when hovering the carousel container
+        // Pause on hover over carousel area
         container.addEventListener('mouseenter', () => { isPaused = true; });
         container.addEventListener('mouseleave', () => { isPaused = false; });
 
-        // Start the animation
+        // Start scrolling
         scrollCarousel();
     }
 });
