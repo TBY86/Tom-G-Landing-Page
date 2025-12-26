@@ -999,7 +999,7 @@ img{
 
 /* Hero-only carousel container – inherits blue background, no effect on .columns elsewhere */
 .hero-carousel-columns {
-    padding: 2rem;
+    padding: 1rem 2rem 0 2rem; /* Top + sides, zero bottom padding (wrapper handles it) */
     overflow: hidden;
     position: relative;
 }
@@ -1020,8 +1020,10 @@ img{
     flex-shrink: 0;
     border-radius: 15px;
     box-shadow: var(--shadow-raised-subtle);
-    background-color: rgba(255, 255, 255, 0.92); /* Light backdrop for clarity */
+    background-color: rgba(255, 255, 255, 0.92);
     padding: 12px;
+    pointer-events: auto;                   /* Re-enables hover only on images */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Heading white on blue */
@@ -1035,34 +1037,25 @@ img{
     100% { transform: translateX(-50%); }
 }
 
-/* Optional enhancements – scoped to hero only */
 /* Pause animation ONLY when hovering directly over a certification image */
+.hero-carousel-columns .carousel-track img:hover ~ ..carousel-track,
 .hero-carousel-columns .carousel-track img:hover {
-    animation-play-state: paused; /* Stops the whole track when any image is hovered */
+    animation-play-state: paused;
 }
 
-/* Remove the broad hero-wide pause */
-.tomGriffin:hover .carousel-track {
-    animation-play-state: running; /* Ensures it doesn't pause on hero hover */
-}
-
-/* Carousel Interactions */
+/* Visual feedback on image hover */
 .hero-carousel-columns .carousel-track img:hover {
     transform: scale(1.05);
     z-index: 2;
     box-shadow: var(--shadow-raised);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Ensure the track itself doesn't trigger pause on hover */
+/* Ensure empty space in track doesn't trigger hover */
 .carousel-track {
-    pointer-events: none; /* Allows clicks/hover to pass through to images */
+    pointer-events: none; /* Hover passes through to images only */
 }
 
-.carousel-track img {
-    pointer-events: auto; /* Re-enables hover only on the actual images */
-}
-
+/* Fade edges matching blue hero */
 .hero-carousel-columns::before,
 .hero-carousel-columns::after {
     content: "";
@@ -1084,22 +1077,8 @@ img{
     background: linear-gradient(to left, var(--sky-blue), transparent);
 }
 
+/* Bottom spacing inside hero */
 .hero-carousel-wrapper {
-    padding-bottom: 3rem;      /* Space before bottom of hero – adjust 3rem up/down as needed */
-    margin-bottom: -1rem;      /* Optional: pulls it slightly up if too much gap */
+    padding-bottom: 3rem;      /* Adjust for breathing room before hero border */
+    margin-bottom: -1rem;      /* Optional fine-tune */
 }
-
-.hero-carousel-columns {
-    padding: 1rem 2rem 0 2rem; /* Top + sides, zero bottom padding (wrapper handles it) */
-    overflow: hidden;
-    position: relative;
-}
-
-
-
-
-
-
-
-
-
