@@ -177,12 +177,33 @@ footer{
 /* LAYOUT
 /*******************************************/
 
-.tomGriffin{
-     height:50rem;
-     background-color: var(--sky-blue);
-     color: var(--text-light);
-     margin: 1rem;
-     padding: 1rem;
+/* Update .tomGriffin to grow with content */
+.tomGriffin {
+    /* height: 50rem; */           /* Comment out or remove the fixed height */
+    min-height: 50rem;            /* Keeps it at least your original size, but allows growth */
+    height: auto;                 /* Lets it expand as needed */
+    display: flex;                /* New: Flex column for clean internal layout */
+    flex-direction: column;
+    justify-content: space-between; /* Pushes carousel to bottom with space */
+    background-color: var(--sky-blue);
+    color: var(--text-light);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 15px;          /* Ensures rounded corners stay */
+    overflow: hidden;             /* Clips any internal overflow cleanly */
+}
+
+/* Tighten spacing for heading */
+.tomGriffin > .asideHeader {
+    margin: 2rem 0 1rem;          /* Less bottom margin */
+    text-align: center;
+}
+
+/* Wrapper for carousel – adds controlled bottom space */
+.hero-carousel-wrapper {
+    padding: 0 0 4rem 0;           /* Generous bottom padding inside hero – adjust 4rem as needed */
+    margin-top: auto;             /* Pushes carousel area down if there's extra space */
+}
 }
 
 .welcome{
@@ -1029,4 +1050,5 @@ img{
     overflow: hidden;
     position: relative;
 }
+
 
