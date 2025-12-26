@@ -1036,8 +1036,31 @@ img{
 }
 
 /* Optional enhancements – scoped to hero only */
+/* Pause animation ONLY when hovering directly over a certification image */
+.hero-carousel-columns .carousel-track img:hover {
+    animation-play-state: paused; /* Stops the whole track when any image is hovered */
+}
+
+/* Remove the broad hero-wide pause */
 .tomGriffin:hover .carousel-track {
-    animation-play-state: paused;
+    animation-play-state: running; /* Ensures it doesn't pause on hero hover */
+}
+
+/* Carousel Interactions */
+.hero-carousel-columns .carousel-track img:hover {
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: var(--shadow-raised);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ensure the track itself doesn't trigger pause on hover */
+.carousel-track {
+    pointer-events: none; /* Allows clicks/hover to pass through to images */
+}
+
+.carousel-track img {
+    pointer-events: auto; /* Re-enables hover only on the actual images */
 }
 
 .hero-carousel-columns::before,
@@ -1071,6 +1094,7 @@ img{
     overflow: hidden;
     position: relative;
 }
+
 
 
 
