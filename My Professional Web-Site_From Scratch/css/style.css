@@ -994,7 +994,7 @@ img{
 }
 
 /******************************************
-/* ADDITIONAL STYLES
+/* ADDITIONAL STYLES - CAROUSEL (STYLING ONLY)
 /******************************************/
 /* Hero-only carousel container */
 .hero-carousel-columns {
@@ -1003,16 +1003,14 @@ img{
     position: relative;
 }
 
-/* Carousel track */
+/* Carousel track - layout only */
 .hero-carousel-columns .carousel-track {
     display: flex;
     gap: 3rem;
-    animation: scroll-left 15s linear infinite;
     padding: 1rem 0;
-    pointer-events: none; /* Crucial: track ignores pointer events */
 }
 
-/* Images */
+/* Images - visual styling only */
 .hero-carousel-columns .carousel-track img {
     height: 220px;
     width: auto;
@@ -1022,31 +1020,19 @@ img{
     box-shadow: var(--shadow-raised-subtle);
     background-color: rgba(255, 255, 255, 0.92);
     padding: 12px;
-    pointer-events: auto; /* Images receive hover events */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth feedback */
+}
+
+/* Hover visual feedback (pure style) */
+.hero-carousel-columns .carousel-track img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-raised);
+    z-index: 2;
 }
 
 /* Heading white on blue */
 .tomGriffin > .asideHeader h2 {
     color: var(--text-light);
-}
-
-/* Animation */
-@keyframes scroll-left {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-/* Pause the carousel when hovering an image */
-.hero-carousel-columns:hover .carousel-track {
-    animation-play-state: paused;
-}
-
-/* Visual feedback on individual image hover */
-.hero-carousel-columns .carousel-track img:hover {
-    transform: scale(1.05);
-    z-index: 2;
-    box-shadow: var(--shadow-raised);
 }
 
 /* Fade edges */
