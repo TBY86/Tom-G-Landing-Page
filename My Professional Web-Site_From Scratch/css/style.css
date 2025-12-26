@@ -1037,6 +1037,18 @@ img{
     position: relative;
 }
 
+/* Allow enlarged certs to pop out below the hero bottom */
+.tomGriffin {
+    overflow: visible !important;   /* Key line: lets zoomed images escape bottom */
+    position: relative;             /* Ensures proper layering */
+}
+
+/* Optional: Strengthen z-index on hovered image to stay on top */
+.hero-carousel-columns .carousel-track img:hover {
+    z-index: 30;                    /* Higher than everything else */
+    position: relative;
+}
+
 /* Stronger pop-out effect on hover */
 .hero-carousel-columns .carousel-track img:hover {
     transform: scale(2.4);                 /* Even bigger for full fine-print readability */
@@ -1061,5 +1073,6 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
