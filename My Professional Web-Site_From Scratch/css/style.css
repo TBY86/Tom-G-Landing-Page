@@ -995,26 +995,26 @@ img{
 
 /******************************************
 /* ADDITIONAL STYLES
-/*******************************************/
-
-/* Hero-only carousel container – inherits blue background, no effect on .columns elsewhere */
+/******************************************/
+/* Hero-only carousel container */
 .hero-carousel-columns {
-    padding: 1rem 2rem 0 2rem; /* Top + sides, zero bottom padding (wrapper handles it) */
+    padding: 1rem 2rem 0 2rem;
     overflow: hidden;
     position: relative;
 }
 
-/* Carousel track – only inside hero */
+/* Carousel track */
 .hero-carousel-columns .carousel-track {
     display: flex;
     gap: 3rem;
     animation: scroll-left 15s linear infinite;
     padding: 1rem 0;
+    pointer-events: none; /* Crucial: track ignores pointer events */
 }
 
-/* Images – readable on blue background */
+/* Images */
 .hero-carousel-columns .carousel-track img {
-    height: 220px;                          /* Adjust as needed */
+    height: 220px;
     width: auto;
     object-fit: contain;
     flex-shrink: 0;
@@ -1022,7 +1022,7 @@ img{
     box-shadow: var(--shadow-raised-subtle);
     background-color: rgba(255, 255, 255, 0.92);
     padding: 12px;
-    pointer-events: auto;                   /* Re-enables hover only on images */
+    pointer-events: auto; /* Images receive hover events */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1037,25 +1037,19 @@ img{
     100% { transform: translateX(-50%); }
 }
 
-/* Pause animation ONLY when hovering directly over a certification image */
-.hero-carousel-columns .carousel-track img:hover ~ ..carousel-track,
-.hero-carousel-columns .carousel-track img:hover {
+/* Pause the carousel when hovering an image */
+.hero-carousel-columns:hover .carousel-track {
     animation-play-state: paused;
 }
 
-/* Visual feedback on image hover */
+/* Visual feedback on individual image hover */
 .hero-carousel-columns .carousel-track img:hover {
     transform: scale(1.05);
     z-index: 2;
     box-shadow: var(--shadow-raised);
 }
 
-/* Ensure empty space in track doesn't trigger hover */
-.carousel-track {
-    pointer-events: none; /* Hover passes through to images only */
-}
-
-/* Fade edges matching blue hero */
+/* Fade edges */
 .hero-carousel-columns::before,
 .hero-carousel-columns::after {
     content: "";
@@ -1079,6 +1073,6 @@ img{
 
 /* Bottom spacing inside hero */
 .hero-carousel-wrapper {
-    padding-bottom: 3rem;      /* Adjust for breathing room before hero border */
-    margin-bottom: -1rem;      /* Optional fine-tune */
+    padding-bottom: 3rem;
+    margin-bottom: -1rem;
 }
