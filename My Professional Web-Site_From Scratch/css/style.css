@@ -1008,7 +1008,7 @@ img{
 .hero-carousel-columns .carousel-track {
     display: flex;
     gap: 3rem;
-    animation: scroll-left 45s linear infinite;
+    animation: scroll-left 30s linear infinite;
     padding: 1rem 0;
 }
 
@@ -1094,6 +1094,7 @@ img{
     overflow: hidden;
     position: relative;
 }
+
 
 
 
