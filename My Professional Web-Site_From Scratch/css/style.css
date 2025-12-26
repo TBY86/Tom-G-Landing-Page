@@ -845,10 +845,10 @@ img{
 /******************************************
 /* ADDITIONAL STYLES - CAROUSEL (FINAL CLEAN VERSION)
 /******************************************/
-/* Hero-only carousel container - pure background, no fade overlay */
+/* Hero-only carousel container - pure background, no clipping issues */
 .hero-carousel-columns {
     padding: 1rem 2rem 0 2rem;
-    overflow: hidden;
+    overflow: hidden;       /* Keeps normal scrolling contained horizontally */
     position: relative;
 }
 
@@ -902,10 +902,4 @@ img{
 /* Bottom spacing inside hero */
 .hero-carousel-wrapper {
     padding-bottom: 3rem;
-}
-
-/* Tighten spacing for heading */
-.tomGriffin > .asideHeader {
-    margin: 2rem 0 1rem;
-    text-align: center;
 }
