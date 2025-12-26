@@ -843,12 +843,12 @@ img{
     }
 }
 /******************************************
-/* ADDITIONAL STYLES - CAROUSEL (FINAL CLEAN VERSION)
+/* ADDITIONAL STYLES - CAROUSEL (STYLING ONLY - NO ANIMATION)
 /******************************************/
-/* Hero-only carousel container - pure background, no clipping issues */
+/* Hero-only carousel container - pure background */
 .hero-carousel-columns {
     padding: 1rem 2rem 0 2rem;
-    overflow: hidden;       /* Keeps normal scrolling contained horizontally */
+    overflow: hidden;
     position: relative;
 }
 
@@ -859,7 +859,7 @@ img{
     padding: 1rem 0;
 }
 
-/* Images - visual styling only */
+/* Images - visual styling only (no hover effects at all) */
 .hero-carousel-columns .carousel-track img {
     height: 220px;
     width: auto;
@@ -869,29 +869,7 @@ img{
     box-shadow: var(--shadow-raised-subtle);
     background-color: rgba(255, 255, 255, 0.92);
     padding: 12px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: zoom-in;
-}
-
-/* Massive readable hover zoom - centered on screen, fully escapes clipping */
-.hero-carousel-columns .carousel-track img:hover {
-    transform: translate(-50%, -50%) scale(2.4);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    z-index: 50;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
-    cursor: zoom-out;
-}
-
-/* Optional dark backdrop for better readability when enlarged */
-.hero-carousel-columns .carousel-track img:hover::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.75);
-    z-index: -1;
-    pointer-events: none;
+    cursor: pointer; /* Indicates clickable for JS interaction */
 }
 
 /* Heading white on blue */
