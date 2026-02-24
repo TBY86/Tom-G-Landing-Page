@@ -395,7 +395,7 @@ img{
 }
 
 .listBox:hover {
-    transform: translateY(-2px);
+    transform: translateY(-0.2px);
     transition: transform 0.3s ease;
 }
 
@@ -1096,6 +1096,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
