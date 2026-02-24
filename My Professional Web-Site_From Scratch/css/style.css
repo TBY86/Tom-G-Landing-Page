@@ -373,7 +373,7 @@ img{
      display: flex;
      flex-direction: row;
      flex-wrap: wrap;
-     align-items: flex-start;
+     align-items: stretch;
      justify-content: flex-start;
      gap: .5rem;
 }
@@ -399,7 +399,6 @@ img{
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-}
 }
 
 .scroll-card-link .listBox {
@@ -977,7 +976,7 @@ img{
           font-size: 1.1rem;
      }
 
-     .listBox {
+     Box {
           flex: 0 0 100%;
           min-width: 100%;
           max-width: 100%;
@@ -1086,6 +1085,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
