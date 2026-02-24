@@ -394,6 +394,20 @@ img{
      color: var(--dark-blue);
 }
 
+.scroll-card-link {
+    display: flex;
+    flex: 0 0 calc(33.333% - 1rem);
+    min-width: 250px;
+    max-width: calc(33.333% - 1rem);
+    text-decoration: none;
+    color: inherit;
+}
+
+.scroll-card-link .listBox {
+    flex: 1;
+    margin: 0.5rem 0;
+}
+
 /******************************************
 /* FIXED ACTION BUTTONS
 /*******************************************/
@@ -1073,6 +1087,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
