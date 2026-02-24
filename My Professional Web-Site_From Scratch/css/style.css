@@ -416,6 +416,10 @@ img{
 	border: 3px solid var(--golden-amber);
 }
 
+.scroll-card-link:hover {
+    transform: none;
+}
+
 /******************************************
 /* FIXED ACTION BUTTONS
 /*******************************************/
@@ -1095,6 +1099,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
