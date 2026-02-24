@@ -395,8 +395,7 @@ img{
 }
 
 .listBox:hover {
-    transform: translateY(-0.2px);
-    transition: transform 0.3s ease;
+    transform: translateY(0px);
 }
 
 .scroll-card-link .listBox:hover {
@@ -1096,6 +1095,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
