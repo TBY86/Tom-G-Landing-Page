@@ -404,6 +404,7 @@ img{
 .scroll-card-link .listBox {
     flex: 1;
     margin: 0.5rem 0;
+	border: 3px solid var(--golden-amber);
 }
 
 /******************************************
@@ -1085,6 +1086,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
