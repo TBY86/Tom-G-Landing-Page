@@ -395,12 +395,11 @@ img{
 }
 
 .scroll-card-link {
-    display: flex;
-    flex: 0 0 calc(40% - 1rem);
-    min-width: 250px;
-    max-width: calc(40% - 1rem);
+    display: contents;
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
+}
 }
 
 .scroll-card-link .listBox {
@@ -1087,6 +1086,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
