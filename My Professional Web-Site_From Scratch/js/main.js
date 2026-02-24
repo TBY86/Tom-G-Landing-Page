@@ -229,12 +229,16 @@ document.addEventListener('DOMContentLoaded', function() {
    
     const listBoxes = document.querySelectorAll('.listBox');
     listBoxes.forEach(box => {
-        if (box.closest('.scroll-card-link')) return;
-    
-        box.addEventListener('mouseenter', function() {
-            animateHover(this, 'translateY(0) scale(1)', 220);
-        });
+        if (box.closest('.scroll-card-link')) {
+            box.addEventListener('mouseenter', function() {
+                animateHover(this, 'translateY(-6px) scale(1.02)', 220);
+            });
+            box.addEventListener('mouseleave', function() {
+                animateHover(this, 'translateY(0) scale(1)', 220);
+            });
+        }
     });
+});
    
     function animateHover(element, targetTransform, duration) {
         const start = performance.now();
