@@ -394,6 +394,16 @@ img{
      color: var(--dark-blue);
 }
 
+.listBox:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+.scroll-card-link .listBox:hover {
+    transform: translateY(-10px);
+    transition: transform 0.3s ease;
+}
+
 .scroll-card-link {
     display: contents;
     text-decoration: none;
@@ -1086,6 +1096,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
