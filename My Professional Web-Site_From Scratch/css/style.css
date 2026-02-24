@@ -396,9 +396,9 @@ img{
 
 .scroll-card-link {
     display: flex;
-    flex: 0 0 calc(33.333% - 1rem);
+    flex: 0 0 calc(40% - 1rem);
     min-width: 250px;
-    max-width: calc(33.333% - 1rem);
+    max-width: calc(40% - 1rem);
     text-decoration: none;
     color: inherit;
 }
@@ -1087,6 +1087,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
