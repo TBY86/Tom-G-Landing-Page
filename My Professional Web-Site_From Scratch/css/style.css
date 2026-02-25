@@ -20,52 +20,69 @@
 /******************************************
 /* COLOR PALETTE
 /*******************************************/
+
 :root {
-     /* Primary Colors */
-     --sky-blue: #5B9BD5;
-     --charcoal-black: #2C3E50;
+     /* Backgrounds */
+     --bg-base: #0B1520;
+     --bg-section: #101E2E;
+     --bg-card: #152030;
+     --bg-card-alt: #1A2840;
+
+     /* Navy Accents - borders, dividers, headers */
+     --navy-border: #1E3A5F;
+     --navy-mid: #234875;
+     --slate: #3A5F82;
+
+     /* Nav buttons - subtle, wayfinding only */
+     --nav-btn-bg: #1A2E45;
+     --nav-btn-border: #1E3A5F;
+     --nav-btn-text: #8FA8C0;
+     --nav-btn-hover-bg: #234875;
+
+     /* Text */
+     --text-light: #E8EDF2;
+     --text-dark: #E8EDF2;
+     --text-medium: #8FA8C0;
+     --text-muted: #4A6680;
+
+     /* Golden Amber - CTAs and clickables ONLY */
      --golden-amber: #F39C12;
-     
-     /* Supporting Colors */
-     --light-blue: #A8D0F0;
-     --lighter-blue: #D4E6F7;
-     --dark-blue: #3A7BC8;
-     --deep-charcoal: #1A252F;
-     
-     /* Text Colors */
-     --text-light: #F8F9FA;
-     --text-dark: #2C3E50;
-     --text-medium: #5A6C7D;
-     
-     /* Border Colors */
-     --border-main: #3A7BC8;
-     --border-light: #A8D0F0;
-     
-     /* Claymorphism Shadows */
+     --amber-hover: #E67E22;
+     --amber-glow: rgba(243, 156, 18, 0.15);
+
+     /* Legacy mappings - keeps existing rules working */
+     --sky-blue: #1A2E45;
+     --charcoal-black: #080F18;
+     --dark-blue: #1E3A5F;
+     --light-blue: #152030;
+     --lighter-blue: #101E2E;
+     --border-main: #1E3A5F;
+     --border-light: #234875;
+
+     /* Shadows */
      --shadow-raised: 
-          8px 8px 16px rgba(42, 60, 80, 0.25),
-          -8px -8px 16px rgba(255, 255, 255, 0.15);
+          8px 8px 16px rgba(0, 0, 0, 0.4),
+          -2px -2px 8px rgba(255, 255, 255, 0.03);
      
      --shadow-raised-subtle: 
-          5px 5px 12px rgba(42, 60, 80, 0.2),
-          -5px -5px 12px rgba(255, 255, 255, 0.12);
+          4px 4px 12px rgba(0, 0, 0, 0.3),
+          -2px -2px 6px rgba(255, 255, 255, 0.02);
      
      --shadow-inset: 
-          inset 4px 4px 8px rgba(42, 60, 80, 0.15),
-          inset -4px -4px 8px rgba(255, 255, 255, 0.08);
-     
+          inset 4px 4px 8px rgba(0, 0, 0, 0.3),
+          inset -4px -4px 8px rgba(255, 255, 255, 0.02);
+
      /* Glow Effects */
      --glow-blue: 
-          inset 0 0 20px rgba(91, 155, 213, 0.3),
-          inset 0 0 40px rgba(91, 155, 213, 0.15);
+          inset 0 0 20px rgba(26, 46, 69, 0.5),
+          inset 0 0 40px rgba(26, 46, 69, 0.3);
      
      --glow-amber: 
           inset 0 0 15px rgba(243, 156, 18, 0.4),
           inset 0 0 30px rgba(243, 156, 18, 0.2);
      
      --glow-combined: 
-          inset 0 0 20px rgba(91, 155, 213, 0.25),
-          inset 0 0 40px rgba(91, 155, 213, 0.12),
+          inset 0 0 20px rgba(26, 46, 69, 0.4),
           inset 0 0 10px rgba(243, 156, 18, 0.15);
 }
 
@@ -1099,6 +1116,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
