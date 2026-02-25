@@ -353,10 +353,10 @@ img{
      color: var(--text-light);
 }
 
-#webDevelopment .skillsDescriptions {
+#webDevelopment .listBox {
     background-color: var(--bg-section);
 }
-#cyberSecurity .skillsDescriptions {
+#cyberSecurity .listBox {
     background-color: var(--bg-base);
 }
 
@@ -1118,6 +1118,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
