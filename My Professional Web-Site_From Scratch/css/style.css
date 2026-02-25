@@ -20,7 +20,6 @@
 /******************************************
 /* COLOR PALETTE
 /*******************************************/
-
 :root {
      /* Backgrounds */
      --bg-base: #0B1520;
@@ -94,8 +93,8 @@
 }
 
 body{
-     background-color: var(--lighter-blue);
-     color: var(--text-dark);
+     background-color: var(--bg-base);
+     color: var(--text-light);
      margin: 0;
      padding: 0;
      padding-bottom: 80px; /* Space for fixed buttons */
@@ -109,7 +108,7 @@ header {
      gap: 5rem;
      flex: 1;
      height: 100px;
-     border: 2px solid var(--border-main);
+     border: 2px solid var(--navy-border);
      padding-right: 2rem;
      padding-left: 10rem;
      background-color: var(--charcoal-black);
@@ -122,20 +121,21 @@ header {
 }
 
 header a {
-     color: var(--text-light);
+     color: var(--nav-btn-text);
      padding: 10px 20px;
      border-radius: 8px;
      transition: all 0.3s ease;
-     border: 2px solid var(--sky-blue);
+     border: 1px solid var(--nav-btn-border);
      font-weight: 500;
-     background-color: rgba(91, 155, 213, 0.15);
+     background-color: var(--nav-btn-bg);
 }
 
 header a:hover {
-     background-color: var(--sky-blue);
-     border-color: var(--sky-blue);
+     background-color: var(--nav-btn-hover-bg);
+     border-color: var(--navy-mid);
+     color: var(--text-light);
      transform: translateY(-2px);
-     box-shadow: 0 4px 12px rgba(91, 155, 213, 0.3);
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 nav{
@@ -146,31 +146,32 @@ nav{
 }
 
 nav a {
-     color: var(--text-light);
+     color: var(--nav-btn-text);
      padding: 10px 20px;
      border-radius: 8px;
      transition: all 0.3s ease;
-     border: 2px solid var(--sky-blue);
+     border: 1px solid var(--nav-btn-border);
      font-weight: 500;
-     background-color: rgba(91, 155, 213, 0.15);
+     background-color: var(--nav-btn-bg);
      text-decoration: none;
 }
 
 nav a:hover {
-     background-color: var(--sky-blue);
-     border-color: var(--sky-blue);
+     background-color: var(--nav-btn-hover-bg);
+     border-color: var(--navy-mid);
+     color: var(--text-light);
      transform: translateY(-2px);
-     box-shadow: 0 4px 12px rgba(91, 155, 213, 0.3);
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
      text-decoration: none;
 }
 
 section{
      height: auto;
      min-height: 70rem;
-     border: 2px solid var(--border-main);
+     border: 2px solid var(--navy-border);
      margin: 1rem;
      padding: 1rem;
-     background-color: var(--text-light);
+     background-color: var(--bg-section);
 }
 
 footer{
@@ -181,7 +182,7 @@ footer{
      gap: 5rem;
      flex: 1;
      height: 100px;
-     border: 2px solid var(--border-main);
+     border: 2px solid var(--navy-border);
      padding-right: 2rem;
      padding-left: 10rem;
      background-color: var(--charcoal-black);
@@ -194,31 +195,28 @@ footer{
 /* LAYOUT
 /*******************************************/
 
-/* Update .tomGriffin to grow with content */
 .tomGriffin {
-    /* Remove fixed height to allow natural growth */
-    /* height: 50rem; */ 
-    min-height: 50rem;     /* Keeps minimum size but allows expansion */
+    min-height: 50rem;
     height: auto;
-    background-color: var(--sky-blue);
+    background-color: var(--bg-section);
     color: var(--text-light);
     margin: 1rem;
     padding: 1rem;
     border-radius: 15px;
     overflow: hidden;
-    display: flex;         /* Keep flex for vertical stacking of top + carousel */
+    display: flex;
     flex-direction: column;
 }
 
 /* Restores side-by-side layout for welcome row */
 .tomGriffin > .welcome {
-    display: flex;                 /* Your original flex row */
+    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
 	padding-right: 10rem;
-    gap: 5rem;                     /* Matches your original gap */
-    margin-bottom: 2rem;           /* Space before carousel heading */
+    gap: 5rem;
+    margin-bottom: 2rem;
 }
 
 /* Keeps photo sizing */
@@ -229,19 +227,16 @@ footer{
     height: auto;
 }
 
-}
-
 /* Tighten spacing for heading */
 .tomGriffin > .asideHeader {
-    margin: 2rem 0 1rem;          /* Less bottom margin */
+    margin: 2rem 0 1rem;
     text-align: center;
 }
 
-/* Wrapper for carousel – adds controlled bottom space */
+/* Wrapper for carousel */
 .hero-carousel-wrapper {
-    padding: 0 0 4rem 0;           /* Generous bottom padding inside hero – adjust 4rem as needed */
-    margin-top: auto;             /* Pushes carousel area down if there's extra space */
-}
+    padding: 0 0 4rem 0;
+    margin-top: auto;
 }
 
 .welcome{
@@ -255,12 +250,12 @@ footer{
 .youtube-responsive {
     position: relative;
     width: 100%;
-    max-width: 800px;        /* Keeps it from getting too wide on large screens */
-    padding-bottom: 56.25%;  /* 16:9 aspect ratio */
+    max-width: 800px;
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-    margin: 40px auto 20px;  /* Centers and adds spacing */
-    border-radius: 15px;     /* Matches global border-radius */
+    margin: 40px auto 20px;
+    border-radius: 15px;
 }
 
 .youtube-responsive iframe {
@@ -295,24 +290,23 @@ img{
 }
 
 .heroNav a {
-     color: var(--text-light);
+     color: var(--charcoal-black);
      padding: 15px 35px;
      border-radius: 12px;
      transition: all 0.3s ease;
-     border: 3px solid var(--text-light);
+     border: 3px solid var(--golden-amber);
      font-weight: 600;
-     background-color: rgba(255, 255, 255, 0.1);
+     background-color: var(--golden-amber);
      text-decoration: none;
      font-size: 1.1rem;
-     backdrop-filter: blur(5px);
 }
 
 .heroNav a:hover {
-     background-color: var(--text-light);
-     color: var(--sky-blue);
-     border-color: var(--text-light);
+     background-color: var(--amber-hover);
+     border-color: var(--amber-hover);
+     color: var(--charcoal-black);
      transform: translateY(-3px) scale(1.05);
-     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+     box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
      text-decoration: none;
 }
 
@@ -341,15 +335,15 @@ img{
 }
 
 #webDevelopment{
-   background-color: var(--lighter-blue);
-   color: var(--text-dark);
+   background-color: var(--bg-section);
+   color: var(--text-light);
    margin: 1rem;
    padding: 1rem;
 }
 
 #cyberSecurity{
-   background-color: var(--light-blue);
-   color: var(--text-dark);
+   background-color: var(--bg-section);
+   color: var(--text-light);
    margin: 1rem;
    padding: 1rem;
 }
@@ -360,9 +354,10 @@ img{
      margin-left: 2rem;
      margin-bottom: 2rem;
      padding: 1.5rem;
-     background-color: var(--text-light);
-     border: 2px solid var(--border-main);
+     background-color: var(--bg-card);
+     border: 2px solid var(--navy-border);
      border-radius: 15px;
+     color: var(--text-light);
 }
 
 .portfolioProjectLinks{
@@ -381,7 +376,7 @@ img{
 .thicc{
      height: 400px;
      width: 100%;
-     border: 2px solid var(--border-main);
+     border: 2px solid var(--navy-border);
      float: left;
 }
 
@@ -396,8 +391,9 @@ img{
 }
 
 .listBox{
-     border: 2px solid var(--border-main);
-     background-color: var(--text-light);
+     border: 2px solid var(--navy-border);
+     background-color: var(--bg-card);
+     color: var(--text-light);
      padding: 1rem;
      margin: 0.5rem 0;
      display: flex;
@@ -408,7 +404,7 @@ img{
 }
 
 .listBox a {
-     color: var(--dark-blue);
+     color: var(--golden-amber);
 }
 
 .listBox:hover {
@@ -430,7 +426,7 @@ img{
 .scroll-card-link .listBox {
     flex: 1;
     margin: 0.5rem 0;
-	border: 3px solid var(--golden-amber);
+     border: 3px solid var(--golden-amber);
 }
 
 .scroll-card-link:hover {
@@ -461,29 +457,31 @@ img{
      cursor: pointer;
      transition: all 0.3s ease;
      text-decoration: none;
-     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .hire-btn {
-     background: linear-gradient(135deg, var(--golden-amber), #e67e22);
-     color: white;
+     background: linear-gradient(135deg, var(--golden-amber), var(--amber-hover));
+     color: var(--charcoal-black);
 }
 
 .hire-btn:hover {
-     background: linear-gradient(135deg, #e67e22, var(--golden-amber));
+     background: linear-gradient(135deg, var(--amber-hover), var(--golden-amber));
      transform: translateY(-3px);
      box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
 }
 
 .portfolio-btn {
-     background: linear-gradient(135deg, var(--sky-blue), var(--dark-blue));
-     color: white;
+     background: transparent;
+     border: 2px solid var(--golden-amber);
+     color: var(--golden-amber);
 }
 
 .portfolio-btn:hover {
-     background: linear-gradient(135deg, var(--dark-blue), var(--sky-blue));
+     background: var(--golden-amber);
+     color: var(--charcoal-black);
      transform: translateY(-3px);
-     box-shadow: 0 6px 20px rgba(91, 155, 213, 0.4);
+     box-shadow: 0 6px 20px rgba(243, 156, 18, 0.3);
 }
 
 .btn-icon {
@@ -501,20 +499,20 @@ img{
      top: 0;
      width: 100%;
      height: 100%;
-     background-color: rgba(0, 0, 0, 0.6);
+     background-color: rgba(0, 0, 0, 0.7);
      backdrop-filter: blur(5px);
      animation: fadeIn 0.3s ease;
 }
 
 .modal-content {
-     background-color: var(--text-light);
+     background-color: var(--bg-card);
      margin: 5% auto;
      padding: 40px;
-     border: 2px solid var(--border-main);
+     border: 2px solid var(--navy-border);
      border-radius: 20px;
      width: 90%;
      max-width: 600px;
-     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
      animation: slideDown 0.3s ease;
 }
 
@@ -545,11 +543,11 @@ img{
 
 .close-modal:hover,
 .close-modal:focus {
-     color: var(--charcoal-black);
+     color: var(--text-light);
 }
 
 .modal-content h2 {
-     color: var(--charcoal-black);
+     color: var(--text-light);
      margin-bottom: 10px;
 }
 
@@ -568,7 +566,7 @@ img{
 .form-group label {
      display: block;
      margin-bottom: 8px;
-     color: var(--charcoal-black);
+     color: var(--text-light);
      font-weight: 600;
      font-size: 14px;
 }
@@ -577,19 +575,20 @@ img{
 .form-group textarea {
      width: 100%;
      padding: 12px 15px;
-     border: 2px solid var(--border-light);
+     border: 2px solid var(--navy-border);
      border-radius: 10px;
      font-size: 15px;
      font-family: inherit;
      transition: all 0.3s ease;
-     background-color: white;
+     background-color: var(--bg-card-alt);
+     color: var(--text-light);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
      outline: none;
-     border-color: var(--sky-blue);
-     box-shadow: 0 0 0 3px rgba(91, 155, 213, 0.1);
+     border-color: var(--golden-amber);
+     box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.15);
 }
 
 .form-group textarea {
@@ -604,8 +603,8 @@ img{
 .submit-btn {
      width: 100%;
      padding: 15px;
-     background: linear-gradient(135deg, var(--sky-blue), var(--dark-blue));
-     color: white;
+     background: linear-gradient(135deg, var(--golden-amber), var(--amber-hover));
+     color: var(--charcoal-black);
      border: none;
      border-radius: 10px;
      font-size: 16px;
@@ -615,21 +614,22 @@ img{
 }
 
 .submit-btn:hover {
-     background: linear-gradient(135deg, var(--dark-blue), var(--sky-blue));
+     background: linear-gradient(135deg, var(--amber-hover), var(--golden-amber));
      transform: translateY(-2px);
-     box-shadow: 0 5px 15px rgba(91, 155, 213, 0.3);
+     box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
 }
 
 /******************************************
 /* PORTFOLIO PAGE STYLES
 /*******************************************/
 .portfolioHero {
-     background: linear-gradient(135deg, var(--sky-blue), var(--dark-blue));
+     background: linear-gradient(135deg, var(--bg-section), var(--bg-base));
      color: var(--text-light);
      text-align: center;
      padding: 80px 20px;
      height: auto;
      margin: 1rem;
+     border: 2px solid var(--navy-border);
 }
 
 .portfolioHero h1 {
@@ -647,10 +647,12 @@ img{
      height: auto;
      padding: 60px 40px;
      margin: 1rem;
+     background-color: var(--bg-section);
+     border: 2px solid var(--navy-border);
 }
 
 .portfolioCategory.altBg {
-     background-color: var(--lighter-blue);
+     background-color: var(--bg-card);
 }
 
 .categoryHeader {
@@ -666,7 +668,7 @@ img{
 
 .categoryHeader h2 {
      font-size: 2.5rem;
-     color: var(--charcoal-black);
+     color: var(--text-light);
 }
 
 .portfolioGrid {
@@ -678,8 +680,8 @@ img{
 }
 
 .portfolioItem {
-     background: white;
-     border: 2px solid var(--border-main);
+     background: var(--bg-card);
+     border: 2px solid var(--navy-border);
      border-radius: 20px;
      padding: 30px;
      box-shadow: var(--shadow-raised-subtle);
@@ -689,6 +691,7 @@ img{
 .portfolioItem:hover {
      transform: translateY(-5px);
      box-shadow: var(--shadow-raised);
+     border-color: var(--golden-amber);
 }
 
 .portfolioItem.comingSoon {
@@ -696,7 +699,7 @@ img{
 }
 
 .portfolioItem h3 {
-     color: var(--charcoal-black);
+     color: var(--text-light);
      margin-bottom: 15px;
      font-size: 1.6rem;
 }
@@ -716,12 +719,13 @@ img{
 }
 
 .techTag {
-     background-color: var(--lighter-blue);
-     color: var(--dark-blue);
+     background-color: var(--bg-card-alt);
+     color: var(--text-medium);
      padding: 6px 14px;
      border-radius: 20px;
      font-size: 13px;
      font-weight: 600;
+     border: 1px solid var(--navy-border);
 }
 
 .projectButtons {
@@ -743,34 +747,34 @@ img{
 }
 
 .btnPrimary {
-     background-color: var(--sky-blue);
-     color: white;
-     border: 2px solid var(--sky-blue);
+     background-color: var(--golden-amber);
+     color: var(--charcoal-black);
+     border: 2px solid var(--golden-amber);
 }
 
 .btnPrimary:hover {
-     background-color: var(--dark-blue);
-     border-color: var(--dark-blue);
+     background-color: var(--amber-hover);
+     border-color: var(--amber-hover);
      transform: translateY(-2px);
 }
 
 .btnSecondary {
      background-color: transparent;
-     color: var(--dark-blue);
-     border: 2px solid var(--border-main);
+     color: var(--golden-amber);
+     border: 2px solid var(--golden-amber);
 }
 
 .btnSecondary:hover {
-     background-color: var(--sky-blue);
-     color: white;
-     border-color: var(--sky-blue);
+     background-color: var(--golden-amber);
+     color: var(--charcoal-black);
+     border-color: var(--golden-amber);
      transform: translateY(-2px);
 }
 
 .btnDisabled {
-     background-color: var(--border-light);
-     color: var(--text-medium);
-     border: 2px solid var(--border-light);
+     background-color: var(--bg-card-alt);
+     color: var(--text-muted);
+     border: 2px solid var(--navy-border);
      cursor: not-allowed;
      opacity: 0.5;
 }
@@ -783,10 +787,10 @@ img{
 
 .skillSection h3 {
      font-size: 2rem;
-     color: var(--charcoal-black);
+     color: var(--text-light);
      margin-bottom: 25px;
      padding-left: 10px;
-     border-left: 5px solid var(--sky-blue);
+     border-left: 5px solid var(--golden-amber);
 }
 
 .demoGrid {
@@ -800,19 +804,19 @@ img{
      justify-content: space-between;
      align-items: center;
      padding: 18px 24px;
-     background: white;
-     border: 2px solid var(--border-light);
+     background: var(--bg-card);
+     border: 2px solid var(--navy-border);
      border-radius: 12px;
-     color: var(--dark-blue);
+     color: var(--golden-amber);
      text-decoration: none;
      font-weight: 500;
      transition: all 0.3s ease;
 }
 
 .demoLink:hover {
-     background-color: var(--sky-blue);
-     color: white;
-     border-color: var(--sky-blue);
+     background-color: var(--golden-amber);
+     color: var(--charcoal-black);
+     border-color: var(--golden-amber);
      transform: translateX(5px);
 }
 
@@ -824,6 +828,7 @@ img{
 .demoLink.featured:hover {
      background-color: var(--golden-amber);
      border-color: var(--golden-amber);
+     color: var(--charcoal-black);
 }
 
 .demoLink .arrow {
@@ -840,13 +845,14 @@ img{
      height: auto;
      padding: 60px 40px;
      margin: 1rem;
-     background-color: var(--text-light);
+     background-color: var(--bg-section);
+     border: 2px solid var(--navy-border);
 }
 
 .certifications h2 {
      text-align: center;
      font-size: 2.5rem;
-     color: var(--charcoal-black);
+     color: var(--text-light);
      margin-bottom: 50px;
 }
 
@@ -875,10 +881,10 @@ img{
 .certColumn h3 {
      text-align: center;
      font-size: 1.8rem;
-     color: var(--charcoal-black);
+     color: var(--text-light);
      margin-bottom: 10px;
      padding-bottom: 15px;
-     border-bottom: 3px solid var(--sky-blue);
+     border-bottom: 3px solid var(--golden-amber);
 }
 
 .certItem {
@@ -886,8 +892,8 @@ img{
      align-items: center;
      gap: 25px;
      padding: 30px;
-     background: white;
-     border: 2px solid var(--border-light);
+     background: var(--bg-card);
+     border: 2px solid var(--navy-border);
      border-radius: 15px;
      box-shadow: var(--shadow-raised-subtle);
      transition: all 0.3s ease;
@@ -896,7 +902,7 @@ img{
 .certItem:hover {
      transform: translateY(-3px);
      box-shadow: var(--shadow-raised);
-     border-color: var(--sky-blue);
+     border-color: var(--golden-amber);
 }
 
 .certIcon {
@@ -906,7 +912,7 @@ img{
 }
 
 .certDetails h4 {
-     color: var(--charcoal-black);
+     color: var(--text-light);
      margin-bottom: 10px;
      font-size: 1.3rem;
 }
@@ -922,13 +928,14 @@ img{
      height: auto;
      padding: 60px 40px;
      margin: 1rem;
-     background-color: var(--lighter-blue);
+     background-color: var(--bg-section);
+     border: 2px solid var(--navy-border);
 }
 
 .communityInvolvment h2 {
      text-align: center;
      font-size: 2.5rem;
-     color: var(--charcoal-black);
+     color: var(--text-light);
      margin-bottom: 50px;
 }
 
@@ -945,8 +952,8 @@ img{
      align-items: center;
      gap: 25px;
      padding: 30px;
-     background: white;
-     border: 2px solid var(--border-light);
+     background: var(--bg-card);
+     border: 2px solid var(--navy-border);
      border-radius: 15px;
      box-shadow: var(--shadow-raised-subtle);
      transition: all 0.3s ease;
@@ -1007,7 +1014,7 @@ img{
           font-size: 1.1rem;
      }
 
-     Box {
+     .listBox {
           flex: 0 0 100%;
           min-width: 100%;
           max-width: 100%;
@@ -1026,13 +1033,13 @@ img{
 
 @media screen and (min-width:1000px){
      .thicc{
-          background-color: var(--sky-blue);
+          background-color: var(--bg-card-alt);
      }
 }     
 
 @media screen and (max-width: 600px){
      section{
-          background-color: var(--sky-blue);
+          background-color: var(--bg-card);
      }
 }
 
@@ -1063,7 +1070,7 @@ img{
     box-shadow: var(--shadow-raised-subtle);
     background-color: rgba(255, 255, 255, 0.92);
     padding: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth feedback */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Hover visual feedback (pure style) */
@@ -1071,42 +1078,37 @@ img{
     transform: scale(2.2);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     z-index: 10;
-	transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* Allow enlarged images to escape the carousel clipping */
 .hero-carousel-columns {
-    overflow: visible;  /* Changed from hidden — lets enlarged imgs pop out */
+    overflow: visible;
     position: relative;
 }
 
 /* Allow enlarged certs to pop out below the hero bottom */
 .tomGriffin {
-    overflow: visible !important;   /* Key line: lets zoomed images escape bottom */
-    position: relative;             /* Ensures proper layering */
+    overflow: visible !important;
+    position: relative;
 }
 
-/* Optional: Strengthen z-index on hovered image to stay on top */
+/* Strengthen z-index on hovered image */
 .hero-carousel-columns .carousel-track img:hover {
-    z-index: 30;                    /* Higher than everything else */
+    z-index: 30;
     position: relative;
 }
 
 /* Stronger pop-out effect on hover */
 .hero-carousel-columns .carousel-track img:hover {
-    transform: scale(2.4);                 /* Even bigger for full fine-print readability */
-    z-index: 20;                           /* High z-index to appear above everything */
-    position: relative;                    /* Helps with layering */
+    transform: scale(2.4);
+    z-index: 20;
+    position: relative;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Optional: Dark backdrop behind enlarged cert for better focus */
-.hero-carousel-columns::after {  /* Re-use the right fade as optional backdrop, or add new */
-    /* Remove or comment out side fades if they interfere, or keep as-is */
-}
-
-/* Heading white on blue */
+/* Heading on hero */
 .tomGriffin > .asideHeader h2 {
     color: var(--text-light);
 }
@@ -1116,16 +1118,3 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
