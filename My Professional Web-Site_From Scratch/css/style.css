@@ -249,7 +249,8 @@ footer{
 
 .youtube-responsive {
   position: relative;
-  width: 100%;
+  width: 65%;
+  margin: 0 auto; /* centers video*/
   padding-bottom: 56.25%; /* 16:9 ratio */
   height: 0;
   overflow: hidden;
@@ -1115,4 +1116,5 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
