@@ -333,6 +333,10 @@ img{
      overflow: auto;
 }
 
+#cyberSecurity .skillsDescriptions {
+     background-color: var(--bg-base);
+}
+
 #webDevelopment{
    background-color: var(--bg-base);
    color: var(--text-light);
@@ -1025,6 +1029,7 @@ img{
      }
 
      .skillsDescriptions {
+		  background-color: var(--bg-section);
           float: none;
           width: 100%;
           margin: 0 0 2rem 0;
@@ -1122,6 +1127,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
