@@ -477,10 +477,9 @@ img{
 }
 
 .portfolio-btn {
-     background: transparent;
+     background: rgba(243, 156, 18, 0.15);
      border: 2px solid var(--golden-amber);
-     color: var(--golden-amber);
-}
+	 color: var(--text-light);}
 
 .portfolio-btn:hover {
      background: var(--golden-amber);
@@ -1123,6 +1122,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
