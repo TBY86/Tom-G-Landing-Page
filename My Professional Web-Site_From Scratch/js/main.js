@@ -376,3 +376,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// ========================================
+// STICKY BUTTONS VISIBILITY - PORTFOLIO
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+    const actionButtons = document.querySelector('.action-buttons');
+    const hero = document.querySelector('.portfolioHero');
+
+    if (actionButtons && hero) {
+        actionButtons.style.opacity = '0';
+        actionButtons.style.transition = 'opacity 0.3s ease';
+        actionButtons.style.pointerEvents = 'none';
+
+        function checkScroll() {
+            const heroBottom = hero.getBoundingClientRect().bottom;
+            if (heroBottom < 0) {
+                actionButtons.style.opacity = '1';
+                actionButtons.style.pointerEvents = 'auto';
+            } else {
+                actionButtons.style.opacity = '0';
+                actionButtons.style.pointerEvents = 'none';
+            }
+        }
+
+        window.addEventListener('scroll', checkScroll);
+
+        document.querySelectorAll('a[href="#webDevelopment"], a[href="#securityProjects"], a[href="#certificationsTrainingEducation"], a[href="#communityInvolvement"]').forEach(link => {
+            link.addEventListener('click', function() {
+                setTimeout(() => {
+                    actionButtons.style.opacity = '1';
+                    actionButtons.style.pointerEvents = 'auto';
+                }, 500);
+            });
+        });
+    }
+});
