@@ -738,6 +738,7 @@ img{
      flex-wrap: wrap;
      gap: 8px;
      margin-bottom: 25px;
+	 margin-top: auto;
 }
 
 .techTag {
@@ -1142,6 +1143,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
