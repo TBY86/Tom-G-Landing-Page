@@ -706,6 +706,8 @@ img{
      padding: 30px;
      box-shadow: var(--shadow-raised-subtle);
      transition: all 0.3s ease;
+	 display: flex;
+	 flex-direction: column
 }
 
 .portfolioItem:hover {
@@ -751,6 +753,7 @@ img{
 .projectButtons {
      display: flex;
      gap: 12px;
+	 margin-top: auto;
 }
 
 .btnPrimary,
@@ -1139,6 +1142,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
