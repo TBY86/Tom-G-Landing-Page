@@ -754,7 +754,6 @@ img{
 .projectButtons {
      display: flex;
      gap: 12px;
-	 margin-top: auto;
 }
 
 .btnPrimary,
@@ -1143,6 +1142,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
