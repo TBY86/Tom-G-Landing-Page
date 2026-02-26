@@ -238,7 +238,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-});
    
     function animateHover(element, targetTransform, duration) {
         const start = performance.now();
