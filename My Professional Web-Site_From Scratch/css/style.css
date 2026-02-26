@@ -357,6 +357,7 @@ img{
      width: 35%;
      margin-left: 2rem;
      margin-bottom: 2rem;
+	 margin-top: 1.5rem;
      padding: 1.5rem;
      border: 2px solid var(--navy-border);
      border-radius: 15px;
@@ -1128,6 +1129,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
