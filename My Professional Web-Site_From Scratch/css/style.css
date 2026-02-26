@@ -333,6 +333,13 @@ img{
      overflow: auto;
 }
 
+.columns > h3 {
+     font-size: 1.5rem;
+     text-align: center;
+     width: 100%;
+     margin-bottom: 1rem;
+}
+
 #cyberSecurity  {
      background-color: var(--bg-base);
 }
@@ -1128,6 +1135,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
