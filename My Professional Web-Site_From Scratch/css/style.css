@@ -628,7 +628,7 @@ img{
 /* PORTFOLIO PAGE STYLES
 /*******************************************/
 .portfolioHero {
-     background: linear-gradient(135deg, var(--bg-section), var(--bg-base));
+     background-color: var(--bg-section);
      color: var(--text-light);
      text-align: center;
      padding: 80px 20px;
@@ -652,12 +652,12 @@ img{
      height: auto;
      padding: 60px 40px;
      margin: 1rem;
-     background-color: var(--bg-section);
+     background-color: var(--bg-base);
      border: 2px solid var(--navy-border);
 }
 
 .portfolioCategory.altBg {
-     background-color: var(--bg-card);
+	background-color: var(--bg-section);
 }
 
 .categoryHeader {
@@ -685,7 +685,7 @@ img{
 }
 
 .portfolioItem {
-     background: var(--bg-card);
+     background: var(--bg-section);
      border: 2px solid var(--navy-border);
      border-radius: 20px;
      padding: 30px;
@@ -809,7 +809,7 @@ img{
      justify-content: space-between;
      align-items: center;
      padding: 18px 24px;
-     background: var(--bg-card);
+     background: var(--bg-base);
      border: 2px solid var(--navy-border);
      border-radius: 12px;
      color: var(--golden-amber);
@@ -850,7 +850,7 @@ img{
      height: auto;
      padding: 60px 40px;
      margin: 1rem;
-     background-color: var(--bg-section);
+     background-color: var(--bg-base);
      border: 2px solid var(--navy-border);
 }
 
@@ -897,7 +897,7 @@ img{
      align-items: center;
      gap: 25px;
      padding: 30px;
-     background: var(--bg-card);
+     background: var(--bg-section);
      border: 2px solid var(--navy-border);
      border-radius: 15px;
      box-shadow: var(--shadow-raised-subtle);
@@ -957,7 +957,7 @@ img{
      align-items: center;
      gap: 25px;
      padding: 30px;
-     background: var(--bg-card);
+     background: var(--bg-base);
      border: 2px solid var(--navy-border);
      border-radius: 15px;
      box-shadow: var(--shadow-raised-subtle);
@@ -1123,6 +1123,7 @@ img{
     padding-bottom: 3rem;
     margin-bottom: -1rem;
 }
+
 
 
 
