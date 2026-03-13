@@ -264,6 +264,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ========================================
 // MODAL FUNCTIONALITY
+// - Resume Modal followed by others
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+	const resumeModal = document.getElementById('resumeModal');
+	const resumeCloseBtn = document.querySelector('.resume-close-modal');
+	const resumeBtn = document.getElementById('resumeBtn');
+
+	if (resumeBtn) {
+		resumeBtn.addEventListener('click', function() {
+			resumeModal.style.display = 'flex';
+			document.body.style.overflow = 'hidden';
+		});
+	}
+
+	if (resumeCloseBtn) {
+		resumeCloseBtn.addEventListener('click', function() {
+			resumeModal.style.display = 'none';
+			document.body.style.overflow = 'auto';
+		});
+	}
+
+	window.addEventListener('click', function(event) {
+		if (event.target === resumeModal) {
+			resumeModal.style.display = 'none';
+			document.body.style.overflow = 'auto';
+		}
+	});
+
+	document.addEventListener('keydown', function(event) {
+		if (event.key === 'Escape' && resumeModal.style.display === 'flex') {
+			resumeModal.style.display = 'none';
+			document.body.style.overflow = 'auto';
+		}
+	});
+});
+
+// ========================================
+// OTHER MODAL FUNCTIONALITY
 // ========================================
 document.addEventListener('DOMContentLoaded', function() {
     const hireMeBtn = document.getElementById('hireMeBtn');
