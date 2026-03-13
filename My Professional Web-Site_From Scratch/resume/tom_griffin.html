@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tom Griffin | Cybersecurity Engineer & Web Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0e17;
+    --bg-secondary: #0f1623;
+    --bg-card: #111827;
+    --bg-card-hover: #1a2235;
+    --accent-cyan: #00d4ff;
+    --accent-blue: #0066cc;
+    --accent-green: #00ff88;
+    --accent-dim: #1a3a5c;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border: #1e2d45;
+    --border-accent: #00d4ff33;
+    --glow: 0 0 20px #00d4ff22;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Exo 2', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Subtle grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 36px 40px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    border: 1px solid var(--border-accent);
+    border-radius: 4px;
+    background: linear-gradient(135deg, #0f1a2e 0%, #0a0e17 100%);
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--glow);
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .name-block h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    text-shadow: 0 0 30px rgba(0,212,255,0.4);
+    line-height: 1;
+  }
+
+  .name-block .title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--accent-green);
+    letter-spacing: 3px;
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 24px;
+    text-align: right;
+  }
+
+  .contact-grid a, .contact-grid span {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s;
+  }
+
+  .contact-grid a:hover { color: var(--accent-cyan); }
+
+  .header-summary {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section {
+    margin-bottom: 22px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-header h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+  }
+
+  .section-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border-accent), transparent);
+  }
+
+  .section-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    color: var(--accent-green);
+    background: rgba(0,255,136,0.08);
+    border: 1px solid rgba(0,255,136,0.2);
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    position: relative;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .card:hover {
+    border-color: var(--border-accent);
+    box-shadow: var(--glow);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--accent-cyan);
+    border-radius: 4px 0 0 4px;
+    opacity: 0.6;
+  }
+
+  /* ── EXPERIENCE ENTRIES ── */
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+  }
+
+  .exp-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+  }
+
+  .exp-company {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-cyan);
+    margin-bottom: 2px;
+  }
+
+  .exp-date {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    background: rgba(0,212,255,0.06);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+
+  .exp-subtitle {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-green);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 10px 0 6px;
+  }
+
+  ul.bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.bullets li {
+    padding: 2px 0 2px 16px;
+    color: var(--text-secondary);
+    font-size: 12.5px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  ul.bullets li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent-cyan);
+    font-weight: bold;
+  }
+
+  .tech-stack {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .tech-badge {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9.5px;
+    color: var(--accent-cyan);
+    background: rgba(0,212,255,0.06);
+    border: 1px solid rgba(0,212,255,0.2);
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── 2-COLUMN GRID ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .two-col .card { margin-bottom: 0; }
+
+  /* ── SKILLS GRID ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .skill-group {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+
+  .skill-group-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .skill-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--text-secondary);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+
+  /* ── CERT CARDS ── */
+  .cert-issuer {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--accent-green);
+    margin-bottom: 8px;
+  }
+
+  /* ── PROJECTS ── */
+  .project-tech {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  /* ── INFLUENCES ── */
+  .influence-item {
+    margin-bottom: 6px;
+  }
+
+  .influence-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--text-primary);
+  }
+
+  .influence-desc {
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+
+  /* ── EDUCATION ── */
+  .edu-focus {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 16px;
+    margin-top: 6px;
+  }
+
+  /* ── FOOTER ── */
+  .resume-footer {
+    margin-top: 28px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .resume-footer span {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 16px;
+  }
+
+  .footer-links a {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--accent-cyan);
+    text-decoration: none;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #0a0e17 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body::before { display: none; }
+    .page { padding: 20px 28px; }
+    .card:hover { border-color: var(--border); box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <div class="name-block">
+        <h1>Tom Griffin</h1>
+        <div class="title">// Cybersecurity Engineer &amp; Web Developer</div>
+      </div>
+      <div class="contact-grid">
+        <a href="https://tomgriffin.netlify.app">tomgriffin.netlify.app</a>
+        <a href="https://github.com/TBY86">github.com/TBY86</a>
+        <a href="https://r3security.netlify.app">r3security.netlify.app</a>
+        <a href="https://www.linkedin.com/in/tom-griffin-2659b61a6/">linkedin.com/in/tom-griffin</a>
+        <a href="https://www.youtube.com/@R3Secur1ty">youtube.com/@R3Secur1ty</a>
+        <span>Muskegon, MI 49440</span>
+      </div>
+    </div>
+    <div class="header-summary">
+      Cybersecurity engineer with hands-on offensive security research, cloud penetration testing, and full-stack web development experience. 
+      Committed to open-source knowledge sharing and bridging the gap between emerging talent and the security industry. 
+      Thrives in collaborative team environments with a strong foundation in ethical security practice.
+    </div>
+  </header>
+
+  <!-- EXPERIENCE -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Experience</h2>
+      <span class="section-tag">PROFESSIONAL</span>
+    </div>
+
+    <!-- R3Security -->
+    <div class="card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-company">R3Security</div>
+          <div class="exp-title">Security Research Practice &amp; Lab Documentation</div>
+        </div>
+        <div class="exp-date">2024 – Present</div>
+      </div>
+      <div class="exp-subtitle">Security Research &amp; Lab Work</div>
+      <ul class="bullets">
+        <li>Conducted documented penetration testing labs targeting AWS cloud services including SNS and Elastic Beanstalk, identifying cloud misconfigurations and exploitation paths.</li>
+        <li>Performed web application security research using the Silverpeas environment across a multi-lab series documenting vulnerability discovery and exploitation methodology.</li>
+        <li>Completed adversarial AI security research including prompt injection challenges — placed top 8% on the Gandalf AI prompt injection platform.</li>
+        <li>Documented Linux security operations labs covering user modification, permission management, file integrity verification, and encryption/decryption techniques.</li>
+        <li>Participated in NahamCon Winter 2025 CTF competition.</li>
+        <li>Produced executive-style pentest reports for each lab environment explored, available for purchase via portfolio.</li>
+      </ul>
+      <div class="exp-subtitle">Reporting &amp; Documentation</div>
+      <ul class="bullets">
+        <li>Produced professional executive-style pentest reports communicating vulnerability findings and exploitation methodology for lab environments.</li>
+        <li>Maintained a public security research portfolio and YouTube channel documenting lab walkthroughs, cloud security testing, and technical demonstrations.</li>
+      </ul>
+      <div class="tech-stack">
+        <span class="tech-badge">AWS</span><span class="tech-badge">Linux</span><span class="tech-badge">PACU</span>
+        <span class="tech-badge">HTML/CSS</span><span class="tech-badge">SQL</span><span class="tech-badge">Git</span>
+        <span class="tech-badge">GitHub</span><span class="tech-badge">Netlify</span><span class="tech-badge">TryHackMe</span><span class="tech-badge">HackTheBox</span>
+      </div>
+    </div>
+
+    <!-- Revelation Lawn & Snow -->
+    <div class="card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-company">Revelation Lawn &amp; Snow</div>
+          <div class="exp-title">Manager</div>
+        </div>
+        <div class="exp-date">2013 – Present</div>
+      </div>
+      <div class="exp-subtitle">Operations &amp; Technology Management</div>
+      <ul class="bullets">
+        <li>Managed business operations and regulatory compliance including pesticide, chemical, and safety compliance documentation.</li>
+        <li>Developed and maintained the company's front-end website infrastructure including ongoing maintenance and security practices.</li>
+        <li>Managed digital operations including service information, client contact systems, and online presence.</li>
+      </ul>
+      <div class="tech-stack">
+        <span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">Website Administration</span>
+      </div>
+    </div>
+
+    <!-- Gleaning The Scriptures -->
+    <div class="card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-company">Gleaning The Scriptures Ministries</div>
+          <div class="exp-title">Technology &amp; Content Development</div>
+        </div>
+      </div>
+      <div class="exp-subtitle">Web Development &amp; Digital Media</div>
+      <ul class="bullets">
+        <li>Designed and built ministry websites and digital content platforms.</li>
+        <li>Developed interactive multi-page web workbooks used alongside written devotionals and podcast content.</li>
+        <li>Managed social media marketing, digital outreach, and multimedia content production.</li>
+      </ul>
+      <div class="tech-stack">
+        <span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">JavaScript</span><span class="tech-badge">Web Publishing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Projects</h2>
+      <span class="section-tag">PORTFOLIO</span>
+    </div>
+    <div class="two-col">
+
+      <div class="card">
+        <div class="exp-title">Portfolio Website</div>
+        <div class="project-tech">HTML5 · CSS3 · JavaScript · Git · Netlify</div>
+        <ul class="bullets">
+          <li>Cybersecurity portfolio with responsive design, interactive project docs, and video demonstrations.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">AWS Cloud Pentesting Labs</div>
+        <div class="project-tech">AWS · PACU · Linux</div>
+        <ul class="bullets">
+          <li>Penetration testing demos targeting SNS and Elastic Beanstalk; documented attack methodology through portfolio and YouTube.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">Web Application Security Testing</div>
+        <div class="project-tech">Linux · Silverpeas · Burp Suite</div>
+        <ul class="bullets">
+          <li>Multi-video vulnerability discovery and exploitation series using the Silverpeas web application environment.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">Linux Security Demonstrations</div>
+        <div class="project-tech">Linux CLI · Bash</div>
+        <ul class="bullets">
+          <li>Documented labs covering user management, permission configuration, hash verification, and encryption/decryption.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">Interactive Educational Workbooks</div>
+        <div class="project-tech">HTML · CSS · JavaScript</div>
+        <ul class="bullets">
+          <li>Beauty for Ashes &amp; Discerning Truth workbooks — multi-page interactive applications built for Gleaning The Scriptures Ministries.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">PACU Auto-Delete Menu</div>
+        <div class="project-tech">Python · PACU · AWS</div>
+        <ul class="bullets">
+          <li>Open-source contribution to Rhino Security Labs' PACU — built a session deletion function eliminating manual SQL/directory cleanup.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Skills &amp; Technologies</h2>
+      <span class="section-tag">TECHNICAL</span>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Cybersecurity</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Penetration Testing</span>
+          <span class="skill-tag">Cloud Security Testing</span>
+          <span class="skill-tag">Web App Security</span>
+          <span class="skill-tag">AI Prompt Injection</span>
+          <span class="skill-tag">Vulnerability Analysis</span>
+          <span class="skill-tag">OSINT</span>
+          <span class="skill-tag">Privilege Escalation</span>
+          <span class="skill-tag">MITRE ATT&amp;CK</span>
+          <span class="skill-tag">Incident Response</span>
+          <span class="skill-tag">SIEM</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Tools &amp; Platforms</div>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">PACU</span>
+          <span class="skill-tag">Burp Suite</span>
+          <span class="skill-tag">Metasploit</span>
+          <span class="skill-tag">Nmap</span>
+          <span class="skill-tag">Wireshark</span>
+          <span class="skill-tag">FFuF</span>
+          <span class="skill-tag">Rustscan</span>
+          <span class="skill-tag">Git / GitHub</span>
+          <span class="skill-tag">Netlify</span>
+          <span class="skill-tag">TryHackMe</span>
+          <span class="skill-tag">HackTheBox</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Programming &amp; Web</div>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Python (in progress)</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Bash</span>
+          <span class="skill-tag">Responsive Design</span>
+          <span class="skill-tag">DOM Manipulation</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Operating Systems &amp; Infra</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Windows</span>
+          <span class="skill-tag">Active Directory</span>
+          <span class="skill-tag">Cloud Infrastructure</span>
+          <span class="skill-tag">TCP/IP</span>
+          <span class="skill-tag">DNS / HTTP</span>
+          <span class="skill-tag">Firewalls / VPN</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Certificates</h2>
+      <span class="section-tag">CREDENTIALS</span>
+    </div>
+    <div class="two-col">
+
+      <div class="card">
+        <div class="exp-title">Google Cybersecurity Professional Certificate</div>
+        <div class="cert-issuer">Google via Coursera</div>
+        <ul class="bullets">
+          <li>SIEM platforms, log analysis, and threat detection workflows.</li>
+          <li>Incident response lifecycle — containment, eradication, and recovery.</li>
+          <li>MITRE ATT&amp;CK framework and adversary behavior analysis.</li>
+          <li>Python scripting, Bash, and SQL for security operations.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">Google AI Fundamentals</div>
+        <div class="cert-issuer">Google</div>
+        <ul class="bullets">
+          <li>Generative AI systems and AI-assisted development workflows.</li>
+          <li>Prompt engineering concepts and AI security considerations.</li>
+          <li>Ethical AI use and data ethics frameworks.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">HackSmarter AWS Pentesting</div>
+        <div class="cert-issuer">HackSmarter</div>
+        <ul class="bullets">
+          <li>AWS cloud penetration testing methodology and misconfiguration discovery.</li>
+          <li>Privilege escalation and IAM abuse in cloud environments.</li>
+          <li>Offensive testing across EC2, S3, Lambda, and Elastic Beanstalk.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">HackSmarter Hacking Methodology</div>
+        <div class="cert-issuer">HackSmarter</div>
+        <ul class="bullets">
+          <li>Structured penetration testing methodology and offensive security workflow.</li>
+          <li>Reconnaissance, enumeration, exploitation, and privilege escalation.</li>
+          <li>Professional vulnerability reporting and documentation.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">NahamCon Winter 2025 CTF</div>
+        <div class="cert-issuer">NahamCon</div>
+        <ul class="bullets">
+          <li>Competitive CTF participation — completion certificate awarded.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">TryHackMe Advent of Cyber 2025</div>
+        <div class="cert-issuer">TryHackMe</div>
+        <ul class="bullets">
+          <li>Completed annual 24-day cybersecurity challenge series.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION & CONTINUED TRAINING -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Education &amp; Continued Training</h2>
+      <span class="section-tag">LEARNING</span>
+    </div>
+    <div class="two-col">
+
+      <div class="card">
+        <div class="exp-title">MITx — Urban Infrastructure Security</div>
+        <div class="cert-issuer">Massachusetts Institute of Technology</div>
+        <ul class="bullets">
+          <li>Cybersecurity for urban and critical infrastructure systems.</li>
+          <li>Infrastructure vulnerability analysis and government communication.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">HarvardX CS50P — Introduction to Python</div>
+        <div class="cert-issuer">Harvard University (Expected: 07/2026)</div>
+        <ul class="bullets">
+          <li>Comprehensive Python programming foundations course.</li>
+          <li>CS50P Study Group co-organizer on HackSmarter Discord.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">TryHackMe Pentesting Route</div>
+        <div class="cert-issuer">TryHackMe</div>
+        <ul class="bullets">
+          <li>Hands-on interactive pentesting challenges and structured learning path.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">PortSwigger Web Security Academy</div>
+        <div class="cert-issuer">PortSwigger</div>
+        <ul class="bullets">
+          <li>In-depth web application vulnerability research and exploitation labs.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">#100Devs Full Stack Web Development</div>
+        <div class="cert-issuer">Leon Noel</div>
+        <ul class="bullets">
+          <li>Full-stack web development foundations with modern best practices.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="exp-title">freeCodeCamp</div>
+        <div class="cert-issuer">freeCodeCamp</div>
+        <ul class="bullets">
+          <li>Continued skill building across HTML, CSS, and JavaScript curriculum.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INFLUENCES & CONTINUED LEARNING -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Influences &amp; Industry Engagement</h2>
+      <span class="section-tag">COMMUNITY</span>
+    </div>
+    <div class="two-col">
+
+      <div class="card">
+        <div class="exp-subtitle">Podcasts</div>
+        <div class="influence-item">
+          <div class="influence-name">Darknet Diaries</div>
+          <div class="influence-desc">Real-world hacking, cybercrime, and digital espionage — full catalog consumed.</div>
+        </div>
+        <div class="influence-item" style="margin-top:8px">
+          <div class="influence-name">CyberWire Daily</div>
+          <div class="influence-desc">Current cyber threats, vulnerabilities, and policy — 1–3 episodes/week.</div>
+        </div>
+        <div class="influence-item" style="margin-top:8px">
+          <div class="influence-name">Redefining Cybersecurity</div>
+          <div class="influence-desc">Security strategy, governance, and culture — 1–3 episodes/month.</div>
+        </div>
+        <div class="influence-item" style="margin-top:8px">
+          <div class="influence-name">Tech Check (CNBC)</div>
+          <div class="influence-desc">Weekly technology and AI industry news.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="exp-subtitle">Mentors &amp; Content Creators</div>
+        <div class="influence-item">
+          <div class="influence-name">Tyler Ramsbey — HackSmarter</div>
+          <div class="influence-desc">Practical offensive security and pentesting methodology. Active member &amp; CS50P study group host on HackSmarter Discord. 1–3 episodes/week.</div>
+        </div>
+        <div class="influence-item" style="margin-top:8px">
+          <div class="influence-name">Day Johnson — Cyberwox</div>
+          <div class="influence-desc">Cloud security, detection engineering at Amazon. 1–3 episodes/month.</div>
+        </div>
+        <div class="influence-item" style="margin-top:8px">
+          <div class="influence-name">Josh Madakor</div>
+          <div class="influence-desc">IT, cloud security, and cybersecurity career development. 1–3 episodes/month.</div>
+        </div>
+        <div class="influence-item" style="margin-top:8px">
+          <div class="influence-name">Pooja Dutt</div>
+          <div class="influence-desc">Software engineering, AI trends, and tech career guidance. 1–3 episodes/week.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="resume-footer">
+    <span>© 2025 Tom Griffin | Cybersecurity Engineer &amp; Web Developer</span>
+    <div class="footer-links">
+      <a href="https://tomgriffin.netlify.app">Portfolio</a>
+      <a href="https://r3security.netlify.app">R3Security</a>
+      <a href="https://github.com/TBY86">GitHub</a>
+      <a href="https://www.youtube.com/@R3Secur1ty">YouTube</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
