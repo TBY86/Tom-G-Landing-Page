@@ -21,6 +21,7 @@
 			<nav role="navigation">
 				<a href="#welcome"> Home</a>
 				<a href="#webDevelopment"> Web Development</a>
+				<button onclick="document.getElementById('resume-modal').style.display='flex'"style="cursor:pointer;">Resume</button>
 				<a href="#cyberSecurity"> Cybersecurity</a>
 				<a href="https://tomgriffin.netlify.app/portfolio"> Portfolio</a>
 			</nav>
@@ -232,6 +233,12 @@
 				<span class="btn-icon">💼</span>
 				Portfolio
 			</a>
+		</div>
+
+		<!-- Resume Modal -->
+		<div id="resume-modal">
+			<button id="resume-modal-close">&times;</button>
+			<iframe src="/tom_griffin_resume_dates_and_scroll.html"></iframe>
 		</div>
 
 		<!-- Contact Modal -->
