@@ -216,20 +216,28 @@ footer{
 /* Restores side-by-side layout for welcome row */
 .tomGriffin > .welcome {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;   
     align-items: center;
-	padding-right: 10rem;
-    gap: 5rem;
-    margin-bottom: 2rem;
+    gap: 3rem;                
+    flex-wrap: nowrap;
 }
 
 /* Keeps photo sizing */
 .tomGriffin > .welcome > img {
-    max-width: 30%;
-    max-height: 30%;
-    width: auto;
+    width: clamp(140px, 18vw, 240px);
     height: auto;
+    flex-shrink: 0;
+}
+
+@media screen and (max-width: 900px) {
+    .tomGriffin > .welcome > img {
+        display: none;
+    }
+
+    .welcomeWords {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /* Tighten spacing for heading */
@@ -244,12 +252,11 @@ footer{
     margin-top: auto;
 }
 
-.welcome{
-     display: flex;
-     flex-direction: row;
-     justify-content: space-evenly;
-     align-items: center;
-     gap: 5rem;
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
 }
 
 .youtube-responsive {
@@ -266,9 +273,9 @@ footer{
   display: block;
 }
 
-img{
-     max-width: 30%;
-     max-height: 30%;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .welcomeWords{
@@ -276,6 +283,7 @@ img{
      flex-direction: column;
      justify-content: center;
      align-items: center;
+	max-width: 600px;
 }
 
 .heroNav{
